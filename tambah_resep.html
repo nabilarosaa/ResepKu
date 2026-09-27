@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Resep</title>
+</head>
+<body>
+    <form>
+        <div id="judul">
+            <label for="judul">Judul</label><br>
+            <input type="text" id="judul" placeholder="Judul hidangan" required>
+        </div>
+        
+        <div id="foto">
+            <label for="foto">Foto Hidangan</label><br>
+            <input type="file" name="" id="foto">
+        </div>
+        
+        <div id="kategori">
+            <label for="kategori">Kategori</label><br>
+            <select name="kategori" id="kategori" required>
+                <option value="sarapan">Sarapan</option>
+                <option value="makan_siang">Makan Siang</option>
+                <option value="pasta">Pasta</option>
+                <option value="dessert">Dessert</option>
+                <option value="minuman">Minuman</option>
+            </select>
+        </div>
+
+        <div id="waktu_masak">
+            <label for="waktu_masak">Waktu Masak</label><br>
+            <input type="number" id="waktu_masak" name="waktu_masak">
+        </div>
+        
+        <div id="porsi">
+            <label for="porsi">Porsi</label><br>
+            <input type="number" id="porsi" name="porsi" placeholder="Masukkan jumlah porsi">
+        </div>
+        
+        <div id="deskripsi">
+            <label for="deskripsi">Deskripsi Singkat</label><br>
+            <textarea name="" id="deskripsi" placeholder="Masukkan deskripsi singkat"></textarea>
+        </div>
+        
+        <div id="bahan">
+            <label for="daftar_bahan">Daftar Bahan</label><br>
+            <textarea name="" id="daftar_bahan" placeholder="Masukkan daftar bahan"></textarea>
+        </div>
+        
+        <div id="langkah">
+            <label for="langkah">Langkah Memasak</label><br>
+            <textarea name="" id="langkah" placeholder="Masukkan langkah memasak"></textarea>
+        </div>
+        
+        <button><a href="#">Batal</a></button>
+        <button><a href="detail_resep.html">Simpan</a></button>
+    </form>
+</body>
+</html>
