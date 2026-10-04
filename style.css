@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Clarity+City:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --primary: #ee6123;
+    --text: #333333;
+    --background: #FFFDFB;
+    --background-second: rgb(238, 97, 35, 0.1);
+    --edge-spacing: 1.2rem;
+}
+
+* {
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Clarity City", sans-serif;
+    font-optical-sizing: auto;
+    overflow-x: hidden;
+    background-color: var(--background);
+    color: var(--text);
+    margin-inline: 1.2rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 57vw;
+    height: 4rem;
+    background-color: var(--background-second);
+    border-radius: 50px;
+    font-weight: 600;
+    margin-top: var(--edge-spacing);
+    flex-shrink: 0;
+    position: relative;
+}
+
+nav a {
+    color: var(--primary);
+}
+
+nav img {
+    max-width: 150px;
+}
+
+nav .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 40%;
+}
+
+nav a:hover {
+    border-bottom: 1.5px solid var(--primary);
+}
+
+/* ===== HAMBURGER (checkbox hack, no JS) ===== */
+.menu-toggle {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 3px;
+    background-color: var(--primary);
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+.menu-toggle:checked ~ .hamburger span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.menu-toggle:checked ~ .hamburger span:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle:checked ~ .hamburger span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.overlay {
+    display: none;
+}
+
+main {
+    flex: 1;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    justify-items: center;
+    width: 100%;
+}
+
+#kosong {
+    grid-row: 1;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    text-align: center;
+}
+
+#kosong h3 {
+    margin-bottom: -5px;
+}
+
+.rekomendasi {
+    grid-row: 2;
+    margin-bottom: var(--edge-spacing);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.rekomendasi p {
+    margin-bottom: -1px;
+}
+
+button {
+    background-color: var(--primary);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+}
+
+button a {
+    color: white;
+    font-size: 16px;
+    font-weight: 550;
+}
+
+.badge-items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.badge {
+    padding: 5px 20px;
+    border-radius: 100px;
+}
+
+.badge:first-child {
+    background-color: #fff7e3;
+    border: 1px solid #B8860B;
+    color: #B8860B;
+}
+
+.badge:nth-child(2) {
+    background-color: #E3F2E1;
+    border: 1px solid #4A7A3C;
+    color: #4A7A3C;
+}
+
+.badge:last-child {
+    background-color: #FCE4E4;
+    border: 1px solid #C2487A;
+    color: #C2487A;
+}
+
+@media screen and (max-width: 767px) {
+    nav {
+        width: 85vw;
+        justify-content: space-between;
+        padding-inline: 1.5rem;
+        z-index: 100;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    nav .item {
+        display: none;
+        position: fixed;
+        top: 6rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 85vw;
+        max-width: 320px;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.2rem;
+        background-color: var(--background);
+        border-radius: 20px;
+        padding: 2rem 0;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        z-index: 101;
+    }
+
+    .menu-toggle:checked ~ .item {
+        display: flex;
+    }
+
+    .menu-toggle:checked ~ .overlay {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 99;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    nav {
+        width: 90vw;
+        height: 3.5rem;
+    }
+
+    nav img {
+        max-width: 110px;
+    }
+
+    nav .item {
+        top: 5rem;
+        width: 90vw;
+    }
+
+    #kosong h3 {
+        font-size: 1.1rem;
+        padding-inline: 1rem;
+    }
+
+    .badge-items {
+        flex-wrap: wrap;
+        gap: 0.6rem;
+    }
+}

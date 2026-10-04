@@ -1,30 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beranda</title>
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><b>ResepKu</b></li>
-                <li>
-                    <input type="text" placeholder="Cari Resep">
-                </li>
-                <li><a href="resep_saya.html">Resep Saya</a></li>
-                <li><a href="#">Favorit</a></li>
-            </ul>
-        </nav>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Beranda</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <img src="assets/resepku.svg" alt="Logo ResepKu">
+                <input type="checkbox" id="menuToggle" class="menu-toggle">
+                <label for="menuToggle" class="hamburger" aria-label="Buka menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                <div class="item">
+                    <a href="resep_saya.html">Resep Saya</a>
+                    <a href="#">Favorit</a>
+                    <a href="#">Profil</a>
+                </div>
+                <label for="menuToggle" class="overlay"></label>
+                <!-- <input type="text" placeholder="Cari Resep"> -->
+            </nav>
 
-        <p>Halo, User!</p>
-        <p>Mau masak apa hari ini?</p>
-    </header>
+            <!-- <h2>Halo, User!</h2>
+            <p>Mau masak apa hari ini?</p> -->
+        </header>
 
-    <main>
-        <h4>Belum ada resep di sini. Yuk, tambahkan resep pertamamu!</h4>
-        <button><a href="tambah_resep.html">Tambah Resep</a></button>
-    </main>
-</body>
+        <main>
+            <div id="kosong">
+                <h3>Belum ada resep di sini. Yuk, tambahkan resep pertamamu!</h3>
+                <button><a href="tambah_resep.html">Tambah Resep</a></button>
+            </div>
+            
+            <div class="rekomendasi">
+                <p>Mulai dari resep: </p>
+                <div class="badge-items">
+                    <span class="badge">Sarapan</span>
+                    <span class="badge">Dessert</span>
+                    <span class="badge">Minuman</span>
+                </div>
+            </div>
+            
+        </main>
+    </body>
 </html>
