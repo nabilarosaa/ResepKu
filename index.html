@@ -1,49 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Beranda</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <header>
-            <nav>
-                <img src="assets/resepku.svg" alt="Logo ResepKu">
-                <input type="checkbox" id="menuToggle" class="menu-toggle">
-                <label for="menuToggle" class="hamburger" aria-label="Buka menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </label>
-                <div class="item">
-                    <a href="resep_saya.html">Resep Saya</a>
-                    <a href="#">Favorit</a>
-                    <a href="#">Profil</a>
-                </div>
-                <label for="menuToggle" class="overlay"></label>
-                <!-- <input type="text" placeholder="Cari Resep"> -->
-            </nav>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beranda | ResepKu</title>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#ee6123',
+                        ink: '#333333',
+                        cream: '#FFFDFB',
+                    },
+                    fontFamily: {
+                        sans: ['"Clarity City"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+<body class="min-h-screen bg-cream font-sans text-ink">
 
-            <!-- <h2>Halo, User!</h2>
-            <p>Mau masak apa hari ini?</p> -->
-        </header>
+    <header class="relative mx-4 mt-5">
+        <nav class="mx-auto flex h-14 w-[90vw] items-center justify-between rounded-full bg-primary/10 px-6 font-semibold md:h-16 md:w-[85vw] lg:w-[57vw] lg:justify-around lg:px-0">
+            <a href="index.html"><img src="assets/resepku.svg" alt="Logo ResepKu" class="max-w-[110px] md:max-w-[150px]"></a>
 
-        <main>
-            <div id="kosong">
-                <h3>Belum ada resep di sini. Yuk, tambahkan resep pertamamu!</h3>
-                <button><a href="tambah_resep.html">Tambah Resep</a></button>
+            <div class="hidden items-center gap-8 text-primary md:flex">
+                <a href="index.html" class="border-b-2 border-primary">Beranda</a>
+                <a href="resep_saya.html" class="border-b-2 border-transparent hover:border-primary">Resep Saya</a>
+                <a href="#" class="border-b-2 border-transparent hover:border-primary">Favorit</a>
+                <a href="#" class="border-b-2 border-transparent hover:border-primary">Profil</a>
             </div>
-            
-            <div class="rekomendasi">
-                <p>Mulai dari resep: </p>
-                <div class="badge-items">
-                    <span class="badge">Sarapan</span>
-                    <span class="badge">Dessert</span>
-                    <span class="badge">Minuman</span>
+
+            <button id="menuBtn" type="button" aria-label="Buka menu" aria-expanded="false" class="flex flex-col gap-[5px] p-2 md:hidden">
+                <span class="block h-[3px] w-6 rounded bg-primary"></span>
+                <span class="block h-[3px] w-6 rounded bg-primary"></span>
+                <span class="block h-[3px] w-6 rounded bg-primary"></span>
+            </button>
+        </nav>
+
+        <div id="mobileMenu" class="absolute left-1/2 top-16 z-50 hidden w-[90vw] max-w-xs -translate-x-1/2 flex-col items-center gap-5 rounded-3xl bg-cream py-8 font-semibold text-primary shadow-xl md:hidden">
+            <a href="index.html" class="border-b-2 border-primary">Beranda</a>
+            <a href="resep_saya.html">Resep Saya</a>
+            <a href="#">Favorit</a>
+            <a href="#">Profil</a>
+        </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-4 py-10 md:px-8">
+
+        <section class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+                <h1 class="text-2xl font-bold md:text-3xl">Halo, User!</h1>
+                <p class="mt-1">Mau masak apa hari ini?</p>
+            </div>
+            <div class="flex w-full gap-3 md:w-auto">
+                <input type="text" placeholder="Cari resep" class="w-full rounded-full border border-primary/30 bg-white px-5 py-3 outline-none focus:border-primary md:w-72">
+                <a href="tambah_resep.html" class="whitespace-nowrap rounded-full bg-primary px-6 py-3 font-semibold text-white hover:opacity-90">Tambah Resep</a>
+            </div>
+        </section>
+
+        <section class="mt-8 flex flex-wrap items-center gap-3">
+            <p>Mulai dari resep:</p>
+            <span class="rounded-full border border-[#B8860B] bg-[#fff7e3] px-5 py-1 text-[#B8860B]">Sarapan</span>
+            <span class="rounded-full border border-[#4A7A3C] bg-[#E3F2E1] px-5 py-1 text-[#4A7A3C]">Dessert</span>
+            <span class="rounded-full border border-[#C2487A] bg-[#FCE4E4] px-5 py-1 text-[#C2487A]">Minuman</span>
+        </section>
+
+        <section class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <article class="overflow-hidden rounded-2xl border border-primary/15 bg-white">
+                <div class="flex h-40 items-center justify-center bg-primary/10 text-sm text-primary">Foto resep</div>
+                <div class="p-5">
+                    <span class="rounded-full border border-[#B8860B] bg-[#fff7e3] px-3 py-0.5 text-sm text-[#B8860B]">Sarapan</span>
+                    <h2 class="mt-3 text-lg font-bold">Shrimp Chicken Pasta</h2>
+                    <p class="mt-1 text-sm text-ink/70">40 menit &middot; 2 porsi</p>
+                    <a href="#" class="mt-4 inline-block font-semibold text-primary hover:underline">Lihat resep</a>
                 </div>
-            </div>
-            
-        </main>
-    </body>
+            </article>
+
+            <article class="overflow-hidden rounded-2xl border border-primary/15 bg-white">
+                <div class="flex h-40 items-center justify-center bg-primary/10 text-sm text-primary">Foto resep</div>
+                <div class="p-5">
+                    <span class="rounded-full border border-[#4A7A3C] bg-[#E3F2E1] px-3 py-0.5 text-sm text-[#4A7A3C]">Dessert</span>
+                    <h2 class="mt-3 text-lg font-bold">Pudding Cokelat</h2>
+                    <p class="mt-1 text-sm text-ink/70">45 menit &middot; 6 porsi</p>
+                    <a href="#" class="mt-4 inline-block font-semibold text-primary hover:underline">Lihat resep</a>
+                </div>
+            </article>
+
+            <article class="overflow-hidden rounded-2xl border border-primary/15 bg-white">
+                <div class="flex h-40 items-center justify-center bg-primary/10 text-sm text-primary">Foto resep</div>
+                <div class="p-5">
+                    <span class="rounded-full border border-[#C2487A] bg-[#FCE4E4] px-3 py-0.5 text-sm text-[#C2487A]">Minuman</span>
+                    <h2 class="mt-3 text-lg font-bold">Es Teh Lemon</h2>
+                    <p class="mt-1 text-sm text-ink/70">10 menit &middot; 4 porsi</p>
+                    <a href="#" class="mt-4 inline-block font-semibold text-primary hover:underline">Lihat resep</a>
+                </div>
+            </article>
+        </section>
+
+        <!-- muncul kalau belum ada resep -->
+        <section class="mt-12 hidden flex-col items-center gap-5 text-center">
+            <h3 class="px-4 text-lg font-bold">Belum ada resep di sini. Yuk, tambahkan resep pertamamu!</h3>
+            <a href="tambah_resep.html" class="rounded-full bg-primary px-8 py-3 font-semibold text-white hover:opacity-90">Tambah Resep</a>
+        </section>
+    </main>
+
+    <script>
+        const btn = document.getElementById('menuBtn');
+        const menu = document.getElementById('mobileMenu');
+        btn.addEventListener('click', () => {
+            const terbuka = menu.classList.toggle('hidden') === false;
+            menu.classList.toggle('flex', terbuka);
+            btn.setAttribute('aria-expanded', terbuka);
+        });
+    </script>
+</body>
 </html>
