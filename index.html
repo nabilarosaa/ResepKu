@@ -33,7 +33,7 @@
                 <a href="resep_saya.html" class="border-b-2 border-transparent hover:border-primary">Resep Saya</a>
                 <a href="#" class="border-b-2 border-transparent hover:border-primary">Favorit</a>
                 <a href="#" class="border-b-2 border-transparent hover:border-primary">Profil</a>
-            </div>
+            </div>   
 
             <button id="menuBtn" type="button" aria-label="Buka menu" aria-expanded="false" class="flex flex-col gap-[5px] p-2 md:hidden">
                 <span class="block h-[3px] w-6 rounded bg-primary"></span>
@@ -58,56 +58,46 @@
                 <p class="mt-1">Mau masak apa hari ini?</p>
             </div>
             <div class="flex w-full gap-3 md:w-auto">
-                <input type="text" placeholder="Cari resep" class="w-full rounded-full border border-primary/30 bg-white px-5 py-3 outline-none focus:border-primary md:w-72">
+                <input type="text" id="cari" placeholder="Cari resep" aria-label="Cari resep" style="display:none" class="w-full rounded-full border border-primary/30 bg-white px-5 py-3 outline-none focus:border-primary md:w-72">
                 <a href="tambah_resep.html" class="whitespace-nowrap rounded-full bg-primary px-6 py-3 font-semibold text-white hover:opacity-90">Tambah Resep</a>
             </div>
         </section>
 
-        <section class="mt-8 flex flex-wrap items-center gap-3">
-            <p>Mulai dari resep:</p>
-            <span class="rounded-full border border-[#B8860B] bg-[#fff7e3] px-5 py-1 text-[#B8860B]">Sarapan</span>
-            <span class="rounded-full border border-[#4A7A3C] bg-[#E3F2E1] px-5 py-1 text-[#4A7A3C]">Dessert</span>
-            <span class="rounded-full border border-[#C2487A] bg-[#FCE4E4] px-5 py-1 text-[#C2487A]">Minuman</span>
+        <section id="bagianCari" class="mt-10" style="display:none">
+            <h2 class="text-xl font-bold md:text-2xl">Hasil pencarian</h2>
+            <div id="daftarCari" class="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
         </section>
 
-        <section class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <article class="overflow-hidden rounded-2xl border border-primary/15 bg-white">
-                <div class="flex h-40 items-center justify-center bg-primary/10 text-sm text-primary">Foto resep</div>
-                <div class="p-5">
-                    <span class="rounded-full border border-[#B8860B] bg-[#fff7e3] px-3 py-0.5 text-sm text-[#B8860B]">Sarapan</span>
-                    <h2 class="mt-3 text-lg font-bold">Shrimp Chicken Pasta</h2>
-                    <p class="mt-1 text-sm text-ink/70">40 menit &middot; 2 porsi</p>
-                    <a href="#" class="mt-4 inline-block font-semibold text-primary hover:underline">Lihat resep</a>
-                </div>
-            </article>
+        <p id="tidakCocok" class="mt-12 text-center" style="display:none">Tidak ada resep yang cocok. Coba kata kunci lain.</p>
 
-            <article class="overflow-hidden rounded-2xl border border-primary/15 bg-white">
-                <div class="flex h-40 items-center justify-center bg-primary/10 text-sm text-primary">Foto resep</div>
-                <div class="p-5">
-                    <span class="rounded-full border border-[#4A7A3C] bg-[#E3F2E1] px-3 py-0.5 text-sm text-[#4A7A3C]">Dessert</span>
-                    <h2 class="mt-3 text-lg font-bold">Pudding Cokelat</h2>
-                    <p class="mt-1 text-sm text-ink/70">45 menit &middot; 6 porsi</p>
-                    <a href="#" class="mt-4 inline-block font-semibold text-primary hover:underline">Lihat resep</a>
-                </div>
-            </article>
-
-            <article class="overflow-hidden rounded-2xl border border-primary/15 bg-white">
-                <div class="flex h-40 items-center justify-center bg-primary/10 text-sm text-primary">Foto resep</div>
-                <div class="p-5">
-                    <span class="rounded-full border border-[#C2487A] bg-[#FCE4E4] px-3 py-0.5 text-sm text-[#C2487A]">Minuman</span>
-                    <h2 class="mt-3 text-lg font-bold">Es Teh Lemon</h2>
-                    <p class="mt-1 text-sm text-ink/70">10 menit &middot; 4 porsi</p>
-                    <a href="#" class="mt-4 inline-block font-semibold text-primary hover:underline">Lihat resep</a>
-                </div>
-            </article>
+        <section id="bagianTerbaru" class="mt-10" style="display:none">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+                <h2 class="text-xl font-bold md:text-2xl">Resep terbaru</h2>
+                <a href="resep_saya.html" class="rounded-full border border-primary px-5 py-2 font-semibold text-primary hover:bg-primary/10">Lihat semua resep</a>
+            </div>
+            <div id="daftarTerbaru" class="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
         </section>
 
-        <!-- muncul kalau belum ada resep -->
-        <section class="mt-12 hidden flex-col items-center gap-5 text-center">
+        <section id="bagianFavorit" class="mt-12" style="display:none">
+            <h2 class="text-xl font-bold md:text-2xl">Resep favorit</h2>
+            <div id="daftarFavorit" class="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
+
+            <div id="kosongFavorit" class="mt-4" style="display:none">
+                <div class="flex flex-col items-center gap-5 rounded-2xl bg-primary/10 px-4 py-10 text-center">
+                    <h3 class="text-lg font-bold">Belum ada resep favorit di sini. Pilih resep favoritmu!</h3>
+                    <a href="resep_saya.html" class="rounded-full bg-primary px-8 py-3 font-semibold text-white hover:opacity-90">Lihat Resep Saya</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="kosong" class="mt-12 hidden flex-col items-center gap-5 text-center">
             <h3 class="px-4 text-lg font-bold">Belum ada resep di sini. Yuk, tambahkan resep pertamamu!</h3>
             <a href="tambah_resep.html" class="rounded-full bg-primary px-8 py-3 font-semibold text-white hover:opacity-90">Tambah Resep</a>
         </section>
     </main>
+
+    <div id="notifikasi" role="status" style="display:none"
+        class="fixed left-1/2 top-24 z-[60] -translate-x-1/2 rounded-full bg-ink px-6 py-3 font-semibold text-white shadow-xl"></div>
 
     <script>
         const btn = document.getElementById('menuBtn');
@@ -118,5 +108,7 @@
             btn.setAttribute('aria-expanded', terbuka);
         });
     </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
